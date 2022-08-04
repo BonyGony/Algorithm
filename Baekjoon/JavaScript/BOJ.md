@@ -1,5 +1,28 @@
 # JavaScript Algorithm
 
+## [2022.08.04]
+
+- BOJ_2002 추월
+
+  - 난이도
+    - 실버 1
+  - 유형
+    - Map
+  - ## 풀이
+
+    ```
+    for (let i = 0; i < n; i++) {
+        for (let j = i + 1; j < n; j++) {
+            if (carsMap.get(endCars[i]) > carsMap.get(endCars[j])) {
+                count++;
+                break;
+            }
+        }
+    }
+    ```
+
+    carsMap에 순서를 기록하고 endCars 배열을 각각 비교해서 추월차량을 파악함.
+
 ## [2022.08.03]
 
 - BOJ_20291 파일정리
