@@ -1,3 +1,46 @@
+# [2022.08.08]
+
+## BOJ_9934 완전 이진 트리
+
+- 난이도
+  - 실버 1
+- 유형
+  - 트리, 재귀
+- 풀이
+
+  ```
+  def findNode(depth):
+    global index
+    if depth == n:
+        return
+    findNode(depth+1)
+    tree[depth].append(arr[index]);
+    index+=1
+    findNode(depth+1)
+  ```
+
+  중위 순회 방식 재귀
+
+---
+
+## BOJ_9375 패션왕 신해빈
+
+- 난이도
+  - 실버 3
+- 유형
+  - 조합론, map
+- 풀이
+
+  ```
+  for v in clothesDic.values():
+        result *= (v+1)
+  result -= 1
+  ```
+
+  (1번 종류 개수 + 1)_(2번 종류 개수 + 1) _ ... - 1 = 답
+
+---
+
 # [2022.08.07]
 
 ## BOJ_5567 결혼식
