@@ -1,5 +1,28 @@
 # [2022.08.08]
 
+## BOJ_1406 에디터
+
+- 난이도
+  - 실버 2
+- 유형
+  - 스택
+- 풀이
+
+  ```
+  if order[0] == "P":
+        left.append(order[2])
+  elif order[0] == "L" and left != []:
+        right.append(left.pop())
+  elif order[0] == "D" and right != []:
+        left.append(right.pop())
+  elif order[0] == "B" and left != []:
+        left.pop()
+  ```
+
+  left|cursor|right
+
+---
+
 ## BOJ_9934 완전 이진 트리
 
 - 난이도
