@@ -1,0 +1,115 @@
+# [2022.08.07]
+
+## BOJ_5567 결혼식
+
+- 난이도
+  - 실버 2
+- 유형
+  - 그래프탐색
+- 풀이
+
+  ```
+  for _ in range(m):
+    s,e = map(int, input().split(" "))
+    if s in friendMap:
+        friendMap[s].append(e)
+        friendMap[e].append(s)
+    else:
+        friendMap[s] = [e]
+        friendMap[e] = [s]
+
+    for i in friendMap[1]:
+        friendSet.add(i)
+        for j in friendMap[i]:
+            friendSet.add(j)
+  ```
+
+  양 방향 그래프 설정을 해준 뒤, 1친구들, 그 다음친구들까지 찾아서 set에 추가해 준다.
+
+---
+
+## BOJ_3077 임진왜란
+
+- 난이도
+  - 실버 3
+- 유형
+  - 브루트포스
+- 풀이
+
+  ```
+  for i in range(N):
+  answerMap[answer[i]] = i
+
+  for i in range(N):
+      for j in range(i+1,N):
+          if answerMap[test[i]] < answerMap[test[j]]:
+              cnt += 1
+  ```
+
+  dic으로 각 단어 우선순위를 설정하고 두개씩 비교하면서 점수를 체크한다.
+
+---
+
+## BOJ_1138 한 줄로 서기
+
+- 난이도
+  - 실버 2
+- 유형
+  - 구현
+- 풀이
+  ```
+  for j in range(N):
+      if cnt == more and wait[j] == 0:
+          wait[j] = k
+          break
+      elif wait[j] == 0:
+          cnt += 1
+  ```
+  cnt만큼 왼쪽에 사람이 있으면 넣어 주는데, 자리가 0이어야 한다
+
+---
+
+## BOJ_16922 로마 숫자 만들기
+
+- 난이도
+  - 실버 3
+- 유형
+  - 백트래킹
+- 새로 배운 내용
+  - 순서가 없기에 해당 index 다음부터 검사가능.
+- 풀이
+  ```
+  def find(sum,i, k):
+      if i==0:
+          numSet.add(sum)
+          return
+      for j in range(k,len(arr)):
+          find(sum+arr[j], i-1,j)
+  ```
+  k를 통해 검색 가지수를 줄여줌.
+
+---
+
+## BOJ_16974 레벨 햄버거
+
+- 난이도
+  - 실버 2
+- 유형
+  - 재귀
+- 풀이
+  ```
+  def eat(n, x):
+  if n == 0:
+      return x
+  if x == 1:
+      return 0
+  elif x <= 1 + burger[n-1]:
+      return eat(n-1, x-1)
+  elif x == 1 + burger[n-1] + 1:
+      return patty[n-1] + 1
+  elif x <= burger[n-1] + burger[n-1] + 1 + 1:
+      return patty[n-1] + 1 + eat(n-1, (x-(burger[n-1]+2)))
+  else:
+      return patty[n]
+  })
+  ```
