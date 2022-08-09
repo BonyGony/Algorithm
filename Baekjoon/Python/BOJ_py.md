@@ -1,5 +1,30 @@
 # [2022.08.09]
 
+## BOJ_5212 지구 온난화
+
+- 난이도
+  - 실버 2
+- 유형
+  - 구현
+- 풀이
+
+  ```
+  def checkSurvivedIland(y,x):
+    check = 0
+    for i in range(4):
+        nx = x + dx[i]
+        ny = y + dy[i]
+        if rangeCheck(nx,ny) and Map[ny][nx] == 0:
+            check+=1
+
+    if check >=3:
+        copyMap[y][x] = 0
+  ```
+
+  Map에서 3면이 바다인지 체크해서 copyMap을 바꿔줌.
+
+---
+
 ## BOJ_1946 신입 사원
 
 - 난이도
@@ -18,6 +43,8 @@
 
   면접 점수로 sort 해주고 시작하면 나머지 하나 점수만 비교하면 됨.
 
+---
+
 ## BOJ_4963 섬의 개수
 
 - 난이도
@@ -35,6 +62,8 @@
   ```
 
   dfs로 해당 경로 전부 찾고 visited가 0일 때만 접근.
+
+---
 
 # [2022.08.08]
 
