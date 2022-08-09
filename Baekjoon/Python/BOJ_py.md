@@ -1,4 +1,26 @@
+# [2022.08.09]
+
+## BOJ_4963 섬의 개수
+
 # [2022.08.08]
+
+- 난이도
+  - 실버 2
+- DFS, BFS
+  - 스택
+- 풀이
+
+  ```
+  def dfs(x, y):
+    visited[x][y] = 1
+    for i in range(8):
+        if rangeCheck(x+dx[i], y+dy[i]) and visited[x+dx[i]][y+dy[i]] == 0 and ilands[x+dx[i]][y+dy[i]] == 1:
+            dfs(x+dx[i], y+dy[i])
+  ```
+
+  dfs로 해당 경로 전부 찾고 visited가 0일 때만 접근.
+
+---
 
 ## BOJ_1406 에디터
 
