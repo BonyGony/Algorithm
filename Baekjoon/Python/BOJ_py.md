@@ -1,3 +1,29 @@
+# [2022.08.11]
+
+## BOJ_16953 A -> B
+
+- 난이도
+  - 실버 2
+- 유형
+  - BFS
+- 풀이
+
+  ```
+  def BFS(n, depth):
+    global min
+    if b <= n:
+        if b==n and min > depth:
+            min = depth
+        return
+
+    BFS(n*2, depth+1)
+    BFS(n*10+1, depth+1)
+  ```
+
+a\*2한 값이랑 뒤에 1을 추가해 준 값이랑 둘다 찾는다
+
+---
+
 # [2022.08.10]
 
 ## BOJ_11811 데스스타
