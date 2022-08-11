@@ -1,4 +1,4 @@
-n = 4
+n = int(input())
 
 dp = [0]*31
 
@@ -15,4 +15,5 @@ if n >= 3:
     else:
         print((dp[n] - dp[(n-1)//2])//2 + dp[(n-1)//2])
     
-
+else:
+    print(dp[n])
