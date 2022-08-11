@@ -1,5 +1,32 @@
 # [2022.08.11]
 
+## BOJ_1389 케빈 베이컨의 6단계 법칙
+
+- 난이도
+  - 실버 1
+- 유형
+  - 플로이드-워셜
+- 풀이
+
+  ```
+  def excuteFloydWashall():
+    for mid in range(n):
+        for start in range(n):
+            for end in range(n):
+                friendShip[start][end] = min(friendShip[start][end], friendShip[start][mid] + friendShip[mid][end])
+
+  for i in range(n):
+        iSum = sum(friendShip[i])
+
+        if iSum < min:
+            min = iSum
+            answer = i+1
+  ```
+
+  - 플로이드-워셜로 각 노드의 end point까지의 거리를 구하고 노드 list의 총합을 비교해 답을 찾는다
+
+---
+
 ## BOJ_1759 암호 만들기
 
 - 난이도
