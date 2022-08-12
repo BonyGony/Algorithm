@@ -1,3 +1,31 @@
+# [2022.08.12]
+
+## BOJ_15787 기차가 어둠을 해치고 은하수를
+
+- 난이도
+  - 실버 2
+- 유형
+  - 구현
+- 풀이
+
+  ```
+  def commandOrder(orderNum, trainNum, seatNum = 1 ):
+    if orderNum == 1:
+        trains[trainNum][seatNum] = 1
+    elif orderNum == 2:
+        trains[trainNum][seatNum] = 0
+    elif orderNum == 3:
+        trains[trainNum].rotate(1)
+        trains[trainNum][0] = 0
+    elif orderNum == 4:
+        trains[trainNum].rotate(-1)
+        trains[trainNum][19] = 0
+  ```
+
+  - deque 이용하여 해결
+
+---
+
 # [2022.08.11]
 
 ## BOJ_1389 케빈 베이컨의 6단계 법칙
