@@ -1,3 +1,24 @@
+# [2022.08.13]
+
+## BOJ_11000 강의실 배정
+
+- 난이도
+  - 골드 5
+- 유형
+  - 우선순위 큐
+- 풀이
+
+  ```
+  for i in range(1, N):
+    if rooms[i][0] < queue[0]:
+        heapq.heappush(queue, rooms[i][1])
+    else:
+        heapq.heappop(queue)
+        heapq.heappush(queue, rooms[i][1])
+  ```
+
+---
+
 # [2022.08.12]
 
 ## BOJ_15729 방탈출
