@@ -1,5 +1,24 @@
 # [2022.08.12]
 
+## BOJ_15729 방탈출
+
+- 난이도
+  - 실버 2
+- 유형
+  - 그리디
+- 풀이
+
+  ```
+  for i in range(n):
+        if targetButtons[i] != startButtons[i]:
+            cnt += 1
+            clickButton(i)
+  ```
+
+  - 두개를 비교해서 다르면 눌러준다
+
+---
+
 ## BOJ_15787 기차가 어둠을 해치고 은하수를
 
 - 난이도
