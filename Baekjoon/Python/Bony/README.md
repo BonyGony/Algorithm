@@ -3,7 +3,7 @@
 ## BOJ_1654 랜선 자르기
 
 - 난이도
-  - 실버 2
+  - 실버2
 - 유형
   - 이분탐색
 - 풀이
@@ -23,6 +23,74 @@
   ```
 
   - 이분탐색을 이용한다
+
+---
+
+# [2022.08.13]
+
+## BOJ_11000 강의실 배정
+
+- 난이도
+  - 골드 5
+- 유형
+  - 우선순위 큐
+- 풀이
+
+  ```
+  for i in range(1, N):
+    if rooms[i][0] < queue[0]:
+        heapq.heappush(queue, rooms[i][1])
+    else:
+        heapq.heappop(queue)
+        heapq.heappush(queue, rooms[i][1])
+  ```
+
+---
+
+# [2022.08.12]
+
+## BOJ_15729 방탈출
+
+- 난이도
+  - 실버 2
+- 유형
+  - 그리디
+- 풀이
+
+  ```
+  for i in range(n):
+        if targetButtons[i] != startButtons[i]:
+            cnt += 1
+            clickButton(i)
+  ```
+
+  - 두개를 비교해서 다르면 눌러준다
+
+---
+
+## BOJ_15787 기차가 어둠을 해치고 은하수를
+
+- 난이도
+  - 실버 2
+- 유형
+  - 구현
+- 풀이
+
+  ```
+  def commandOrder(orderNum, trainNum, seatNum = 1 ):
+    if orderNum == 1:
+        trains[trainNum][seatNum] = 1
+    elif orderNum == 2:
+        trains[trainNum][seatNum] = 0
+    elif orderNum == 3:
+        trains[trainNum].rotate(1)
+        trains[trainNum][0] = 0
+    elif orderNum == 4:
+        trains[trainNum].rotate(-1)
+        trains[trainNum][19] = 0
+  ```
+
+  - deque 이용하여 해결
 
 ---
 
