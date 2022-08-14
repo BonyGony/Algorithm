@@ -1,3 +1,31 @@
+# [2022.08.14]
+
+## BOJ_1654 랜선 자르기
+
+- 난이도
+  - 실버 2
+- 유형
+  - 이분탐색
+- 풀이
+
+  ```
+  while start <= end:
+    mid = (start+end)//2
+    cnt = 0
+
+    for ran in rans:
+        cnt += ran//mid
+
+    if cnt >= n:
+        start = mid + 1
+    else:
+        end = mid - 1
+  ```
+
+  - 이분탐색을 이용한다
+
+---
+
 # [2022.08.11]
 
 ## BOJ_1389 케빈 베이컨의 6단계 법칙
