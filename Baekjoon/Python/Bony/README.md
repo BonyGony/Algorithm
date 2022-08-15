@@ -1,3 +1,45 @@
+# [2022.08.15]
+
+## BOJ_7490 0 만들기
+
+- 난이도
+  - 골드 5
+- 유형
+  - 브루트포스
+- 새로 알게된 내용
+  - eval()
+    - 문자열을 계산할 수 있음
+- 풀이
+
+  ```
+  def makeZero(arr, n):
+
+    ar = deepcopy(arr)
+    ar.append(str(n))
+
+    if len(ar) == (N+N-1):
+        s = ''.join(ar).replace(" ", "")
+        if eval(s) == 0:
+            answer.append(''.join(ar))
+        return
+
+    ar.append(' ')
+    makeZero(ar, n+1)
+    ar.pop()
+
+    ar.append('+')
+    makeZero(ar, n+1)
+    ar.pop()
+
+    ar.append('-')
+    makeZero(ar, n+1)
+    ar.pop()
+  ```
+
+  - 재귀를 이용해서 모든 경우를 탐색한다
+
+---
+
 # [2022.08.14]
 
 ## BOJ_1654 랜선 자르기
