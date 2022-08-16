@@ -1,3 +1,29 @@
+# [2022.08.17]
+
+## BOJ_2303 숫자 게임
+
+- 난이도
+  - 실버 5
+- 유형
+  - 브루트포스
+- 풀이
+
+  ```
+  for start in range(length-3):
+        for mid in (start+1, length-2):
+            for end in (mid+1, length-1):
+                num = arr[start] + arr[mid] + arr[end]
+                lastNumS = str(num)
+                lastNum = int(lastNumS[len(lastNumS)-1])
+
+                if m < lastNum:
+                    m = lastNum
+  ```
+
+  - 모든 경우를 탐색해서 최대값을 찾아준다
+
+---
+
 # [2022.08.16]
 
 ## BOJ_9081 단어 맞추기
