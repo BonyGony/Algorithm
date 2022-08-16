@@ -1,3 +1,28 @@
+# [2022.08.16]
+
+## BOJ_1652 누울 자리를 찾아라
+
+- 난이도
+  - 브론즈 1
+- 유형
+  - DFS
+- 풀이
+
+  ```
+  def upDownDfs(x,y, depth):
+    visitedUpDown[x][y] = 1;
+    for i in range(2):
+        nx = x + dxUpDown[i]
+        ny = y + dyUpDown[i]
+        if rangeCheck(nx, ny) and room[nx][ny] == 0  and visitedUpDown[nx][ny] != 1:
+            return upDownDfs(nx, ny, depth+1)
+    return depth
+  ```
+
+  - DFS를 이용해서 depth가 2 이상인 경우를 찾아준다. 위의 코드는 세로 확인이고 비슷하게 가로 검사도 만들어서 진행한다
+
+---
+
 # [2022.08.15]
 
 ## BOJ_7490 0 만들기
