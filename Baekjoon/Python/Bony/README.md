@@ -1,3 +1,172 @@
+# [2022.08.18]
+
+## BOJ_5972 택배 배송
+
+- 난이도
+  - 골드 5
+- 유형
+  - 다익스트라
+- 풀이
+  - 기본 다익스트라 구현해서 적용
+
+---
+
+## BOJ_14584 암호 해독
+
+- 난이도
+  - 실버 5
+- 유형
+  - 브루트포스
+- 풀이
+
+```
+   def changeNextS(s):
+    sArr = list(s)
+
+    for i in range(len(sArr)):
+        chrNum = ord(sArr[i])
+        if chrNum + 1 > 122:
+            sArr[i] = chr(chrNum+1-26)
+        else:
+            sArr[i] = chr(chrNum+1)
+
+    return ''.join(sArr)
+```
+
+- 하나씩 뒤로 바꾸면서 단어가 있는지 체크한다.
+
+---
+
+# [2022.08.17]
+
+## BOJ_10157 자리배정
+
+- 난이도
+  - 실버 4
+- 유형
+  - 구현
+- 풀이
+
+```
+   0 0 0 0 0 0 0
+   0 1 1 1 1 1 0
+   0 1 1 1 1 1 0
+   0 1 1 1 1 1 0
+   0 1 1 1 1 1 0
+   0 1 1 1 1 1 0
+   0 1 1 1 1 1 0
+   0 0 0 0 0 0 0
+```
+
+- (1,1)부터 0으로 만들어 주면서 이동한다. 다음이 0이면 방향을 돌려준다.
+
+---
+
+## BOJ_2303 숫자 게임
+
+- 난이도
+  - 실버 5
+- 유형
+  - 브루트포스
+- 풀이
+
+  ```
+  for start in range(length-3):
+        for mid in (start+1, length-2):
+            for end in (mid+1, length-1):
+                num = arr[start] + arr[mid] + arr[end]
+                lastNumS = str(num)
+                lastNum = int(lastNumS[len(lastNumS)-1])
+
+                if m < lastNum:
+                    m = lastNum
+  ```
+
+  - 모든 경우를 탐색해서 최대값을 찾아준다
+
+---
+
+# [2022.08.16]
+
+## BOJ_9081 단어 맞추기
+
+- 난이도
+  - 실버 1
+- 유형
+  - 구현
+- 풀이
+  - 뒤쪽부터 오름차순인지 검사
+  - 전부 오름차순이면 끝단어. 아니면 내림차순으로 바뀌는 부분을 체크
+  - 체크한 알파벳보다 큰 알파벳을 뒤쪽부터 검사해서 체크
+  - 두 체크한 부분을 swap 하고 첫번째 체크 부분 이후를 정렬해서 붙여줌.
+
+---
+
+## BOJ_1652 누울 자리를 찾아라
+
+- 난이도
+  - 브론즈 1
+- 유형
+  - DFS
+- 풀이
+
+  ```
+  def upDownDfs(x,y, depth):
+    visitedUpDown[x][y] = 1;
+    for i in range(2):
+        nx = x + dxUpDown[i]
+        ny = y + dyUpDown[i]
+        if rangeCheck(nx, ny) and room[nx][ny] == 0  and visitedUpDown[nx][ny] != 1:
+            return upDownDfs(nx, ny, depth+1)
+    return depth
+  ```
+
+  - DFS를 이용해서 depth가 2 이상인 경우를 찾아준다. 위의 코드는 세로 확인이고 비슷하게 가로 검사도 만들어서 진행한다
+
+---
+
+# [2022.08.15]
+
+## BOJ_7490 0 만들기
+
+- 난이도
+  - 골드 5
+- 유형
+  - 브루트포스
+- 새로 알게된 내용
+  - eval()
+    - 문자열을 계산할 수 있음
+- 풀이
+
+  ```
+  def makeZero(arr, n):
+
+    ar = deepcopy(arr)
+    ar.append(str(n))
+
+    if len(ar) == (N+N-1):
+        s = ''.join(ar).replace(" ", "")
+        if eval(s) == 0:
+            answer.append(''.join(ar))
+        return
+
+    ar.append(' ')
+    makeZero(ar, n+1)
+    ar.pop()
+
+    ar.append('+')
+    makeZero(ar, n+1)
+    ar.pop()
+
+    ar.append('-')
+    makeZero(ar, n+1)
+    ar.pop()
+  ```
+
+  - 재귀를 이용해서 모든 경우를 탐색한다
+
+---
+
 # [2022.08.14]
 
 ## BOJ_1654 랜선 자르기
