@@ -1,3 +1,42 @@
+# [2022.08.18]
+
+## BOJ_5972 택배 배송
+
+- 난이도
+  - 골드 5
+- 유형
+  - 다익스트라
+- 풀이
+  - 기본 다익스트라 구현해서 적용
+
+---
+
+## BOJ_14584 암호 해독
+
+- 난이도
+  - 실버 5
+- 유형
+  - 브루트포스
+- 풀이
+
+```
+   def changeNextS(s):
+    sArr = list(s)
+
+    for i in range(len(sArr)):
+        chrNum = ord(sArr[i])
+        if chrNum + 1 > 122:
+            sArr[i] = chr(chrNum+1-26)
+        else:
+            sArr[i] = chr(chrNum+1)
+
+    return ''.join(sArr)
+```
+
+- 하나씩 뒤로 바꾸면서 단어가 있는지 체크한다.
+
+---
+
 # [2022.08.17]
 
 ## BOJ_10157 자리배정
