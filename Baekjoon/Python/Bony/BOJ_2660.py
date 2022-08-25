@@ -26,7 +26,9 @@ while 1:
     relations[a-1][b-1] = 1
     relations[b-1][a-1] = 1
 
+print(relations)
 floyidWashal()
+print(relations)
 
 for i in range(n):
     num = max(relations[i])

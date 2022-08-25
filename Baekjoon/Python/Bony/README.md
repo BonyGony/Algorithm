@@ -1,3 +1,41 @@
+# [2022.08.21]
+
+## PMG 입국심사
+
+- 난이도
+  - LV3
+- 유형
+  - 이분탐색
+- 풀이
+
+  ```
+    start = 0
+    end = max(times) * n
+
+    while start <= end:
+        mid = (start+end)//2
+        people = 0
+
+        for time in times:
+            people += mid//time
+
+            if people >= n:
+                break
+
+        if people >= n:
+            answer = mid
+            end = mid - 1
+        elif people < n:
+            start = mid + 1
+  ```
+
+  - 같은 시간동안 각각이 처리한는 수가 다르므로 ran선 자르기와 비슷함.
+  - end 범위를 가장 오래걸리는 심사대 \* n 을 해주어 설정해 줌.
+  - poeple에 같은 시간동안 각 심사대에서 처리해 준 인원을 넣어준다
+  - n보다 크면 시간이 많다는 뜻으로 end값을 줄여준다. 작다면 start값을 올려준다.
+
+---
+
 # [2022.08.19]
 
 ## BOJ_2660 회장뽑기
