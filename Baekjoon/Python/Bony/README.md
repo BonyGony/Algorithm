@@ -1,3 +1,50 @@
+# [2022.08.27]
+
+## BOJ_9372 상근이의 여행
+
+- 난이도
+  - 실버5
+- 유형
+  - DFS
+- 풀이
+
+```
+def DFS(idx, cnt):
+        visitedCountry[idx] = 1
+
+        for i in countryMap[idx]:
+            if visitedCountry[i] == 0:
+                cnt = DFS(i, cnt+1)
+
+        return cnt
+```
+
+- visit 체크를 하면서 DFS로 쭉 돌아준다
+
+# [2022.08.25]
+
+## BOJ_2851 슈퍼마리오
+
+- 난이도
+  - 브론즈1
+- 유형
+  - 구현
+- 풀이
+
+```
+for mushroom in mushrooms:
+    if answer + mushroom > 100:
+        if (answer + mushroom) - 100 == 100 - answer:
+            answer += mushroom
+        elif (answer + mushroom) - 100 < 100 - answer:
+            answer += mushroom
+        break
+
+    answer += mushroom
+```
+
+- 100을 기준으로 비교해서 더해준다
+
 # [2022.08.23]
 
 ## P 등굣길
