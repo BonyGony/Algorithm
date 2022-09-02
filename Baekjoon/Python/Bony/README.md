@@ -1,3 +1,39 @@
+# [2022.09.01]
+
+## BOJ_9205 맥주 마시면서 걸어가기
+
+- 난이도
+  - 실버1
+- 유형
+  - BFS
+- 풀이
+
+  ```
+    def BFS(n):
+    queue = deque()
+    queue.append(start)
+
+    while queue:
+        x, y = queue.popleft()
+
+        if abs(x - end[0]) + abs(y - end[1]) <= 1000:
+            return 'happy'
+
+        for i in range(n):
+            if not visitGs[i]:
+                nextX, nextY = gs[i]
+
+                if abs(x - nextX) + abs(y - nextY) <= 1000:
+                    queue.append([nextX, nextY])
+                    visitGs[i] = 1
+
+    return 'sad'
+  ```
+
+  - 가까운 편의점부터 거리가 1000 이하이면 집어 넣는다.
+  - 종료문으로 패스티벌 까지의 거리가 1000 이하이면 happy
+  - 패스티벌까지 못가면 sad
+
 # [2022.08.31]
 
 ## BOJ_5014 스타트링크
