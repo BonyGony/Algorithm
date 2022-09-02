@@ -1,3 +1,45 @@
+# [2022.09.02]
+
+## BOJ_5430 AC
+
+- 난이도
+  - 골드5
+- 유형
+  - 구현
+- 풀이
+
+  ```
+    numArr = deque(input()[1:-1].split(','))
+  ```
+
+  - 문자열 파싱하는 것이 포인트
+
+  ```
+    reverse = 0
+
+    if order == 'R':
+      reverse += 1
+  ```
+
+  - R이 들어올때마다 reverse를 해주면 시간초과...
+  - 짝수번이면 해줄필요 없다
+
+  ```
+    elif order == 'D':
+      if len(numArr) == 0:
+          raise
+
+      if reverse % 2 == 0:
+          numArr.popleft()
+      else:
+          numArr.pop()
+  ```
+
+  - 다만 거기에 맞춰서 짝수번이면 왼쪽 삭제
+  - 홀수번이면 오른쪽 삭제해준다
+
+  - 모든 조합을 구해서 answer에 넣어준다
+
 # [2022.09.01]
 
 ## BOJ_1038 감소하는 수
