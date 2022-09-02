@@ -1,5 +1,27 @@
 # [2022.09.01]
 
+## BOJ_1038 감소하는 수
+
+- 난이도
+  - 골드5
+- 유형
+  - 브루트포스
+- 풀이
+
+  ```
+    answers = []
+
+    for i in range(1, 11):
+      for comb in combinations(range(0, 10), i):
+          comb = list(comb)
+          comb.sort(reverse=True)
+          answers.append(int("".join(map(str, comb))))
+
+      answers.sort()
+  ```
+
+  - 모든 조합을 구해서 answer에 넣어준다
+
 ## BOJ_9205 맥주 마시면서 걸어가기
 
 - 난이도
