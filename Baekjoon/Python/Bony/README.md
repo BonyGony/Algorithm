@@ -1,3 +1,30 @@
+# [2022.09.03]
+
+## BOJ_5052 전화번호 목록
+
+- 난이도
+  - 골드4
+- 유형
+  - 정렬
+- 풀이
+
+  ```
+    numArr.sort()
+  ```
+
+  - 정렬을하면 앞뒤만 비교해도 된다. 모든 경우 찾으려 하면 시간초과.
+
+  ```
+    def prefixCheck():
+    for i in range(1, len(numArr)):
+        if numArr[i-1] == numArr[i][0:len(numArr[i-1])]:
+            return 'NO'
+
+    return 'YES'
+  ```
+
+  - 앞뒤 비교해서 prefix로 존재하면 no 리턴하고 아니면 yes 리턴.
+
 # [2022.09.01]
 
 ## BOJ_1038 감소하는 수
