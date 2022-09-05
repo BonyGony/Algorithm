@@ -1,3 +1,95 @@
+# [2022.09.01]
+
+## BOJ_1038 감소하는 수
+
+- 난이도
+  - 골드5
+- 유형
+  - 브루트포스
+- 풀이
+
+  ```
+    answers = []
+
+    for i in range(1, 11):
+      for comb in combinations(range(0, 10), i):
+          comb = list(comb)
+          comb.sort(reverse=True)
+          answers.append(int("".join(map(str, comb))))
+
+      answers.sort()
+  ```
+
+  - 모든 조합을 구해서 answer에 넣어준다
+
+## BOJ_9205 맥주 마시면서 걸어가기
+
+- 난이도
+  - 실버1
+- 유형
+  - BFS
+- 풀이
+
+  ```
+    def BFS(n):
+    queue = deque()
+    queue.append(start)
+
+    while queue:
+        x, y = queue.popleft()
+
+        if abs(x - end[0]) + abs(y - end[1]) <= 1000:
+            return 'happy'
+
+        for i in range(n):
+            if not visitGs[i]:
+                nextX, nextY = gs[i]
+
+                if abs(x - nextX) + abs(y - nextY) <= 1000:
+                    queue.append([nextX, nextY])
+                    visitGs[i] = 1
+
+    return 'sad'
+  ```
+
+  - 가까운 편의점부터 거리가 1000 이하이면 집어 넣는다.
+  - 종료문으로 패스티벌 까지의 거리가 1000 이하이면 happy
+  - 패스티벌까지 못가면 sad
+
+# [2022.08.31]
+
+## BOJ_5014 스타트링크
+
+- 난이도
+  - 골드5
+- 유형
+  - BFS
+- 풀이
+  - deque를 사용한 BFS를 사용한다
+
+# [2022.08.30]
+
+## BOJ_14891 톱니바퀴
+
+- 난이도
+  - 골드5
+- 유형
+  - 구현
+- 풀이
+  - 기준 톱니 오른쪽으로 재귀로 돌려준다
+  - 그 뒤, 왼쪽으로 재귀로 돌려준다
+
+# [2022.08.29]
+
+## BOJ_17609 회문
+
+- 난이도
+  - 골드5
+- 유형
+  - 투포인터
+- 풀이
+  - 각 끝에서부터 비교해준다
+
 # [2022.08.27]
 
 ## BOJ_9372 상근이의 여행
