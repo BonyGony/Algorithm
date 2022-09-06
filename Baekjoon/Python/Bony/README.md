@@ -1,3 +1,23 @@
+# [2022.09.06]
+
+## BOJ_14569 시간표 짜기
+
+- 난이도
+  - 실버2
+- 유형
+  - 구현
+- 풀이
+
+  ```
+    checkSet = set(students[i])
+    checkSet.update(subjects[j])
+    if len(checkSet) == len(students[i]):
+      cnt += 1
+  ```
+
+  - i번째 학생으로 set을 만들어주고 j번째 과목을 합쳐준다.
+  - 학생 스케쥴에 변화가 없으면 시간표가 일치 함으로 cnt를 올려준다.
+
 # [2022.09.05]
 
 ## BOJ_11497 통나무 건너뛰기
