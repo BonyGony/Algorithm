@@ -1,3 +1,33 @@
+# [2022.09.07]
+
+## BOJ_4386 별자리 만들기
+
+- 난이도
+  - 골드4
+- 유형
+  - 크루스칼 알고리즘
+- 풀이
+
+  ```
+    edges.append(
+            (math.sqrt((stars[i][0] - stars[j][0])**2 + (stars[i][1] - stars[j][1])**2), i, j))
+  ```
+
+  - 기본적인 크루스칼 알고리즘을 적용한다.
+  - edge 계산을 해주는게 포인트.
+
+  ```
+    for edge in edges:
+      cost, x, y = edge
+
+      if find_parent(x) != find_parent(y):
+        union_parent(x, y)
+        result += cost
+  ```
+
+  - 정렬된 edge를 작은순에서 큰순으로 받아온다.
+  - root 노드가 같지않으면 순환구조가 아니므로 union 시켜준다
+
 # [2022.09.06]
 
 ## BOJ_1461 도서관
