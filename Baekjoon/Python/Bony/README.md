@@ -1,3 +1,42 @@
+# [2022.09.08]
+
+## BOJ_1189 컴백홈
+
+- 난이도
+  - 실버1
+- 유형
+  - dfs
+- 풀이
+
+  ```
+    if x == 0 and y == c-1:
+        if k == dis:
+            return 1
+        return 0
+  ```
+
+  - 조건 탈출문. 마지막 도착지점에서 k거리이면 1을 리턴
+
+  ```
+    cnt = 0
+
+    for i in range(4):
+        nx = x + dx[i]
+        ny = y + dy[i]
+
+        if rangeCheck(nx, ny) and dis <= k and visited[nx][ny] == 0:
+            visited[nx][ny] = 1
+            cnt += dfs(nx, ny, dis+1)
+            visited[nx][ny] = 0
+
+    return cnt
+  ```
+
+  - 4방향에 대한 재귀를 돌려준다.
+  - 거리가 k를 넘어가면 할 필요가 없고 방문한 곳은 피해준다.
+  - 방문 체크를 하고 재귀를 넘겨주고 돌아오면 방문 체크를 풀어준다
+  - cnt를 리턴해준다
+
 # [2022.09.07]
 
 ## BOJ_4386 별자리 만들기
