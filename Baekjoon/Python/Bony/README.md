@@ -1,3 +1,36 @@
+# [2022.09.09]
+
+## BOJ_3039 입국심사
+
+- 난이도
+  - 골드5
+- 유형
+  - 이분탐색
+- 풀이
+
+  ```
+    start = 0
+    end = m*max(judgingTable)
+  ```
+
+  ```
+    while start <= end:
+      mid = (start+end)//2
+      people = 0
+
+      for table in judgingTable:
+        people += mid//table
+
+      if people >= m:
+        end = mid - 1
+        answer = mid
+      else:
+        start = mid + 1
+  ```
+
+  - mid를 중간값으로 잡아주고 그 중간값을 심사대로 나눠주어 people에 저장한다
+  - people이 m보다 크면 end값을 줄여준다. 반대는 start값을 올려준다.
+
 # [2022.09.08]
 
 ## BOJ_1189 컴백홈
