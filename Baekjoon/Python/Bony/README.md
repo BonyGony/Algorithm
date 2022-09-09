@@ -1,5 +1,52 @@
 # [2022.09.09]
 
+## BOJ_1976 여행 가자
+
+- 난이도
+  - 골드4
+- 유형
+  - 분리 집합
+- 풀이
+
+  ```
+    def findParent(x):
+      if parent[x] != x:
+        parent[x] = findParent(parent[x])
+      return parent[x]
+
+
+    def unionParent(a, b):
+      a = findParent(a)
+      b = findParent(b)
+
+      if a < b:
+        parent[b] = a
+      else:
+        parent[a] = b
+  ```
+
+  - 분리집합의 필수 두 함수.
+
+  ```
+    for i in range(n):
+      line = list(map(int, input().split()))
+      for j in range(n):
+        if line[j] == 1:
+          unionParent(i+1, j+1)
+  ```
+
+  - 연결된 노드를 union 해준다.
+
+  ```
+    for i in range(1, m):
+      if parent[plan[i]] != parent[plan[0]]:
+        check = 0
+  ```
+
+  - 여행 계획 첫번째 도시의 parent와 비교해서 다르면 NO 맞으면 YES를 출력한다.
+
+---
+
 ## BOJ_3039 입국심사
 
 - 난이도
