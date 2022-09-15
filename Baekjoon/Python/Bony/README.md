@@ -1,3 +1,64 @@
+# [2022.09.15]
+
+## BOJ_3190 뱀
+
+- 난이도
+  - 골드4
+- 유형
+  - 구현
+- 풀이
+
+  ```
+    boards = [[0 for _ in range(n)] for _ in range(n)]
+    dirDict = {}
+    dx = [0, 1, 0, -1]
+    dy = [1, 0, -1, 0]
+    dis = 0
+    snake = deque()
+    time = 1
+  ```
+
+  - 시간에 따라 방향을 알려주므로 map을 이용하여 저장하여 준다. 찾는데 O(1)의 시간밖에 걸리지 않으므로 찾는 시간은 신경쓰지 않는다.
+  - dx, dy를 초기값 오르쪽 방향부터 지정해준다.
+  - dis 현재 방향이고 L 혹은 D값이 들어오면 -1, +1을 해주어 바꾸어준다.
+  - 뱀의 상태를 저장하기 위해 snake를 설정. boards에 한칸 늘리고 지우는데 n\*n시간씩 걸리므로 꼬리와 머리를 queue에 저장하여 찾는 시간을 줄여준다.
+
+  ```
+  while True:
+    [x, y] = snake.pop()
+    nx = x + dx[dis]
+    ny = y + dy[dis]
+
+    if not rangeCheck(nx, ny) or boards[nx][ny] == 1:
+        break
+
+    elif boards[nx][ny] == 2:
+        snake.append([x, y])
+        snake.append([nx, ny])
+        boards[nx][ny] = 1
+
+    elif boards[nx][ny] == 0:
+        snake.append([x, y])
+        snake.append([nx, ny])
+        boards[nx][ny] = 1
+        [tail_x, tail_y] = snake.popleft()
+        boards[tail_x][tail_y] = 0
+
+    else:
+        break
+    # print(snake, time, t)
+    if time in dirDict:
+        # print("turn")
+        dis = findDis(dirDict[time])
+        # print(dx[dis], dy[dis])
+    time += 1
+  ```
+
+  - queue에서 head를 가져와 다음값을 찾아준다. 찾는 값이 몸을 밟거나 범위를 벗어나면 종료.
+  - 다음칸이 사과이면 몸만 늘려주고 boards에 표시해준다.
+  - 다음값이 빈칸이면 몸을 늘려주고 꼬리를 다음칸으로 이동시킨다.
+  - 시간이 dirDic에 존재하면 해당 문자를 가져와서 dis값을 바꾸어준다.
+
 # [2022.09.14]
 
 ## BOJ_2302 극장 좌석
