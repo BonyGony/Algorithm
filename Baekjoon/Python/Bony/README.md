@@ -1,5 +1,36 @@
 # [2022.09.17]
 
+## BOJ_2003 수들의 합
+
+- 난이도
+  - 실버4
+- 유형
+  - 투 포인터
+- 풀이
+
+  ```
+    left = 0
+    right = 1
+    cnt = 0
+
+    while right <= n and left <= n:
+        total = sum(arr[left:right])
+
+        if total == m:
+            cnt += 1
+            right += 1
+
+        elif total < m:
+            right += 1
+
+        else:
+            left += 1
+  ```
+
+  - 구간의 합 == m : 카운트 증가. 다음 수를 찾기위해 오른쪽 포이터 이동.
+  - 구간의 합 < m : 오른쪽 포인터 이동. 합을 올려야 함.
+  - 구간의 합 > m : 왼쪽 포인터 이동. 합을 줄여야 함.
+
 ## BOJ_2998 8진수
 
 - 난이도
