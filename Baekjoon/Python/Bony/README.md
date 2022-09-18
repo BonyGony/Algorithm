@@ -1,6 +1,37 @@
 # [2022.09.17]
 
-## BOJ_2003 수들의 합
+## BOJ_1920 수 찾기
+
+- 난이도
+  - 실버4
+- 유형
+  - HashMap
+- 풀이
+
+  ```
+    numMap = {}
+
+    n = int(input())
+    nArr = list(input().split())
+    for i in range(n):
+        numMap[nArr[i]] = 1
+
+    m = int(input())
+    mArr = list(input().split())
+    for i in range(m):
+        if mArr[i] in numMap:
+            print(1)
+        else:
+            print(0)
+  ```
+
+  - map을 만들어 입력값을 넣어준다.
+  - 있는지 검사한다. O(1)이 걸린다.
+  - 이분 탐색보다 훨씬 빠르다.
+
+# [2022.09.17]
+
+## BOJ_2003 수들의 합 2
 
 - 난이도
   - 실버4
