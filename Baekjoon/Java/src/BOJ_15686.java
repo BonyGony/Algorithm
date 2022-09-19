@@ -3,11 +3,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 public class BOJ_15686 {
-    private static int N, M, answer = Integer.MAX_VALUE;
+    private static int M;
+    private static int answer = Integer.MAX_VALUE;
     private static List<Pos> houses, chickens;
     private static Pos[] comb;
 
@@ -15,7 +15,7 @@ public class BOJ_15686 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        N = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
         houses = new ArrayList<>();
@@ -68,7 +68,7 @@ public class BOJ_15686 {
     }
 
     private static class Pos {
-        private int r, c;
+        private final int r, c;
 
         public Pos(int r, int c) {
             this.r = r;
