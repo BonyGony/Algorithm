@@ -1,4 +1,36 @@
-# [2022.09.17]
+# [2022.09.19]
+
+## BOJ_10819 차이를 최대로
+
+- 난이도
+  - 실버2
+- 유형
+  - 브루트포스
+- 풀이
+
+  ```
+    def dfs(arr):
+      global answer
+
+      if len(arr) == n:
+          total = 0
+          for j in range(n-1):
+              total += abs(arr[j] - arr[j+1])
+          answer = max(answer, total)
+          return
+
+      for num in nArr:
+          if num not in arr:
+              arr.append(num)
+              dfs(arr)
+              arr.pop()
+  ```
+
+  - list에 하나씩 추가해주면서 재귀로 호출한다. 이때 안에 안 들어가 있는 것만(visited 활용가능).
+  - arr의 개수가 n이면 최대값을 구해준다.
+  - 다른 방법으로는, from itertools import permutations을 통해서 모든 순열을 구해서 계산해준다.
+
+# [2022.09.18]
 
 ## BOJ_1920 수 찾기
 
