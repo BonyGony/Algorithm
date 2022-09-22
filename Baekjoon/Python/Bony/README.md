@@ -1,4 +1,45 @@
+# [2022.09.22]
+
+## P_118667 두 큐 합 같게 만들기
+
+- 난이도
+  - LV2
+- 유형
+  - 그리디
+- 풀이
+
+  ```
+    if (sum1 + sum2) % 2 != 0:
+        return -1
+
+    while answer < limit:
+
+        if sum1 == sum2:
+            break
+        elif sum1 > sum2:
+            q1 = queue1.popleft()
+            queue2.append(q1)
+            sum2 += q1
+            sum1 -= q1
+        else:
+            q2 = queue2.popleft()
+            queue1.append(q2)
+            sum2 -= q2
+            sum1 += q2
+
+        answer += 1
+
+    if answer == limit:
+        return -1
+  ```
+
+  - 합이 홀수면 -1
+  - queue1이 더크면 하나를 빼주고 queue2에 넣는다. queue2가 더 크면 반대.
+  - answer이 limit과 같으면 못 만드는 것이므로 -1
+
 # [2022.09.21]
+
+## BOJ_14889 스타트와 링크
 
 - 난이도
   - 실버2
