@@ -1,7 +1,5 @@
 def findCh(a, b, num):
-    if num == 4:
-        return [a, 0]
-    elif num > 4:
+    if num >= 4:
         return [b, num-4]
     else:
         if num == 1:
@@ -38,4 +36,4 @@ def solution(survey, choices):
     return answer
 
 
-print(solution(["TR", "RT", "TR"],	[7, 1, 3]))
+print(solution(["AN", "CF", "MJ", "RT", "NA"], [5, 3, 2, 7, 5]))
