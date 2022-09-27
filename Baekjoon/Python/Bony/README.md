@@ -1,5 +1,54 @@
 # [2022.09.27]
 
+## BOJ_14503 로봇 청소기
+
+- 난이도
+  - 골드5
+- 유형
+  - 구현
+- 풀이
+
+  ```
+    visited[r][c] = 1
+    cnt += 1
+  ```
+
+  - 맨 처음 있는 공간을 청소한다.
+
+  ```
+    while 1:
+      flag = 0
+
+      for _ in range(4):
+
+          d = (d+3) % 4
+          nx = r + dx[d]
+          ny = c + dy[d]
+
+          if rangeCheck(nx, ny) and graph[nx][ny] == 0:
+              if visited[nx][ny] == 0:
+                  visited[nx][ny] = 1
+                  cnt += 1
+                  r = nx
+                  c = ny
+                  flag = 1
+                  break
+
+      if flag == 0:
+          if graph[r-dx[d]][c-dy[d]] == 1:
+              print(cnt)
+              break
+          else:
+              r, c = r-dx[d], c-dy[d]
+  ```
+
+  - 일단 4방향을 전부 돌려준다.
+  - 범위를 안 넘고 빈공간이면서 청소를 하지 않았으면 들어간다.
+  - flag를 1로 만들어 청소한 것을 표시한다.
+  - 만약 4방향 모두 청소하지 못 했으면 flag는 0이고 마지막 if문으로 들어간다.
+  - 뒤쪽이 벽이면 cnt를 출력하고 종료
+  - 뒤쪽이 벽이 아니면 후진해준다.
+
 ## BOJ_13458 시험 감독
 
 - 난이도
