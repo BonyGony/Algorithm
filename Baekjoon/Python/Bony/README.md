@@ -1,3 +1,34 @@
+# [2022.10.01]
+
+## BOJ_1049 기타줄
+
+- 난이도
+  - 실버4
+- 유형
+  - 그리디
+- 풀이
+
+  ```
+    allMin = min(allLines)
+    oneMin = min(lines)
+
+    if allMin < 6*oneMin:
+        answer += allMin*(n//6)
+        n = n % 6
+
+        if allMin > n*oneMin:
+            answer += oneMin*n
+        else:
+            answer += allMin
+    else:
+        answer += oneMin*n
+  ```
+
+  - 묶음 별 최소값과 낱개 별 최소값을 구해준다.
+  - 묶음이 더 싸면, n을 6으로 나눈 몫만큼 answer에 더해준다. 남은 개수만큼 낱개 값을 더해준다.
+  - 묶음이 낱개로 남은 개수만큼 가격보다 싸면, 묶음을 하나 더 산다.
+  - 묶음이 더 비싸면, 낱개로 전부 구입한다.
+
 # [2022.09.30]
 
 ## BOJ_20055 컨베이어 벨트 위의 로봇
