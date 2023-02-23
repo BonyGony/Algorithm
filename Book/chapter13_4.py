@@ -1,3 +1,4 @@
+# 괄호 변환
 def balanceCheck(s):
     left = 0
     right = 0
