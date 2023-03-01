@@ -16,7 +16,7 @@ def rangeCheck(x, y):
         return False
 
 
-def bfs(x, y):
+def dfs(x, y):
     visited[x][y] = 1
 
     for i in range(4):
@@ -24,13 +24,13 @@ def bfs(x, y):
         ny = y + dy[i]
 
         if rangeCheck(nx, ny) and visited[nx][ny] != 1 and frame[nx][ny] == 0:
-            bfs(nx, ny)
+            dfs(nx, ny)
 
 
 for x in range(n):
     for y in range(m):
         if visited[x][y] != 1 and frame[x][y] == 0:
             cnt += 1
-            bfs(x, y)
+            dfs(x, y)
 
 print(cnt)
